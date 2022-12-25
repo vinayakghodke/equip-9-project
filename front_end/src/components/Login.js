@@ -27,9 +27,9 @@ const Login = () => {
         mobNum:mobNum,
         pass:pass
 
-    }).then((res)=>{
-        window.alert("User Successfully added");   
-        navigate('/');
+    }).then(()=>{
+        window.alert("User Successfully Validated");   
+        navigate('/home');
     });
 }
 

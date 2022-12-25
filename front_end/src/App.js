@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Registration from './components/Registration';
 import Login from './components/Login';
 import NoMatch from './components/NoMatch';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
    
        <Routes>
         <Route path='/' element={<Registration/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/*' element={<NoMatch/>}/>
      </Routes>   

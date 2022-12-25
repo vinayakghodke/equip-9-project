@@ -7,7 +7,7 @@ const { genSaltSync, hashSync } = require("bcryptjs");   // to encrypt the passw
 require("dotenv").config();                           // to configure .env file to hide server port and connection details
 const crypt = require('bcryptjs');
 const userRoute = require('./routes/user');             // to route incoming API request
-
+const jwt = require('jsonwebtoken');
 app.use(express.json());
 app.use('/user', userRoute);
 app.use(cors());
@@ -60,7 +60,7 @@ app.post('/api/signin', (req, res) => {
     else{
       // const b = crypt.compare(pass, result.password);
       if(true){
-        
+  
       console.log("Success..");
       console.log(result);
 
@@ -75,29 +75,6 @@ app.post('/api/signin', (req, res) => {
   });
 });
 
-/*  app.post('/api/signin', (req, res) => {
- 
-  const mobNum = req.body.mobNum;
-  const pass = req.body.pass;
-  
-  if(!mobNum || !pass){
-    return res.status(400).json({error:"Please fill data"});
-  }
-  
-  const query = "select * from user_details where mobile_num = ? and password = ? ";
-  const query2 = "select * from user_details where mobile_num = ? ";
-  db.query(query, [mobNum, pass],(error, result)=>{
-    if(error){
-      res.status(500).json({message:"Error occured.."});
-    }
-    else{
-      console.log("Success..");
-      res.status(200).json({result});
-    }
-  });
-
-  // return res.status(200).json({message:"Success"});
-});   */
 // now express server will run at given port no 
 
 app.listen(process.env.APP_PORT, () => {                   
